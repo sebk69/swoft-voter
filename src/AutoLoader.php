@@ -17,6 +17,7 @@ use Sebk\SmallOrmSWoft\Generator\DaoGenerator;
 use Sebk\SmallOrmSwoft\Factory\Connections;
 use Sebk\SmallOrmSwoft\Layers\Layers;
 use Sebk\SwoftVoter\VoterManager\VoterManager;
+use Sebk\SwoftVoter\VoterManager\VoterManagerInterface;
 use Swoft\Bean\Container;
 use Swoft\Helper\ComposerJSON;
 use function bean;
@@ -36,11 +37,11 @@ class AutoLoader extends SwoftComponent
     public function beans(): array
     {
         return [
-            VoterManager::class => [
+            VoterManagerInterface::class => [
                 'class' => VoterManager::class,
-            ],
-            'VoterManager' => [
-                'path' => [],
+                [
+                    'configPath' => ['/app/src/Security/Voter'],
+                ],
             ],
         ];
     }
