@@ -39,9 +39,7 @@ class AutoLoader extends SwoftComponent
         return [
             VoterManagerInterface::class => [
                 'class' => VoterManager::class,
-                [
-                    'configPath' => ['/app/src/Security/Voter'],
-                ],
+                'configPath' => ['/app/src/Security/Voter'],
             ],
         ];
     }

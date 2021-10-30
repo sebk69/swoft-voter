@@ -126,7 +126,7 @@ class VoterManager implements VoterManagerInterface
             }
 
             // Extract class name
-            if (!empty($namespace) && strstr($line, 'class')) {
+            if (!empty($namespace) && substr(trim($line), 0, strlen('class')) == 'class') {
                 $withoutClass = trim(str_replace('class', '', $line));
                 for ($i = 0; $i < strlen($line); $i++) {
                     if (substr($withoutClass, $i, 1) == ' ') {
@@ -134,6 +134,7 @@ class VoterManager implements VoterManagerInterface
                         break;
                     }
                 }
+                break;
             }
         }
 
